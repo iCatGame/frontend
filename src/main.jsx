@@ -81,7 +81,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <WagmiConfig config={wagmiConfig}>
-        <RainbowKitProvider chains={chains}>
+        <RainbowKitProvider chains={chains} coolMode >
           <App />
         </RainbowKitProvider>
       </WagmiConfig>
