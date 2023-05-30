@@ -1,9 +1,6 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// const Homepage = lazy(() => import('./pages/homepage'));
-// const Profile = lazy(() => import('./pages/profile'));
+import * as React from "react";
+import Link from "next/link";
 
 const App = () => {
     return (
@@ -11,14 +8,9 @@ const App = () => {
             <div style={{ display: 'flex', justifyContent: 'flex-end', padding: 12, }}>
                 <ConnectButton />
             </div>
-            {/* <Router>
-                <Suspense fallback={<p>加载中...</p>}>
-                    <Routes>
-                        <Route exact path="/" element={<Homepage />} />
-                        <Route path="/profile" element={<Profile />} />
-                    </Routes>
-                </Suspense>
-            </Router> */}
+            <h1>主页</h1>
+            <Link href="/">Homepage</Link>
+            <Link href="/profile">个人主页</Link>
         </div>
     )
 }

@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import '/src/style/index.css';
 // import Auth from './authWrapper';
 // import '/src/polyfills';
 
@@ -35,7 +34,7 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-const projectId = 'ca4f0eccaff2ce33ba2f7c3f03909ba2';
+const projectId = process.env.WALLETCONNECT_PROJECT_ID;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
@@ -48,7 +47,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     //   ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [goerli] : []),
     ],
     [
-        alchemyProvider({apiKey: `cgMywaZ27K503pNh1blNZYPER4gS5Eko`}),
+        alchemyProvider({apiKey: process.env.ALCHEMY_API_KEY}),
         publicProvider()
     ]
   );
