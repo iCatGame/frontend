@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/index.css';
 import App from './App';
+// import Auth from './authWrapper';
 import './polyfills';
 
+// rainbowkit login
 import '@rainbow-me/rainbowkit/styles.css';
 import { 
   connectorsForWallets, 
@@ -31,7 +33,6 @@ import {
 } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
-import { createClient } from 'viem';
 
 const projectId = 'ca4f0eccaff2ce33ba2f7c3f03909ba2';
 
@@ -83,6 +84,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} coolMode >
           <App />
+          {/* <Auth Component={App}/> */}
         </RainbowKitProvider>
       </WagmiConfig>
     </React.StrictMode>
