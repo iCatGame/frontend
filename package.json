@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "frontend of blockchain game",
-  "main": "/src/app/layout.jsx",
+  "main": "/src/app/page.jsx",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@rainbow-me/rainbowkit": "^1.0.1",
     "@rainbow-me/rainbowkit-siwe-next-auth": "^0.2.0",
+    "@supabase/supabase-js": "^2.25.0",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
     "dotenv": "^16.0.3",

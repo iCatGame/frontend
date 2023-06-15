@@ -6,11 +6,6 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 // const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: '区块链游戏',
-  description: '基于AIGC的区块链游戏',
-}
-
 export default function Layout({ children }) {
   return (
     <section>
