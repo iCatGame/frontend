@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "frontend of blockchain game",
-  "main": "/src/app/page.jsx",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -37,5 +36,20 @@
   "devDependencies": {
     "encoding": "^0.1.13",
     "supports-color": "^8.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0"
   }
 }
