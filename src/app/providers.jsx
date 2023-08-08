@@ -43,9 +43,9 @@ const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
       mainnet,
-      polygon,
-      optimism,
-      arbitrum,
+      // polygon,
+      // optimism,
+      // arbitrum,
       arbitrumGoerli,
       optimismGoerli,
     //   ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [goerli] : []),
