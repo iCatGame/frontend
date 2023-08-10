@@ -1,4 +1,4 @@
-import '/src/style/globals.css';
+import "./globals.css";
 import '@rainbow-me/rainbowkit/styles.css';
 // import { Inter } from 'next/font/google';
 import { Providers } from './providers';
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Providers>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', padding: 12, }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', padding: 12, position: 'absolute', zIndex: 1, right: 0 }}>
               <ConnectButton />
           </div>
           {children}
