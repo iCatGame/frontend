@@ -116,7 +116,7 @@ export function Providers({ children }) {
         fetchingStatusRef.current = true;
 
         try {
-          const responce = await fetch('api/me');
+          const responce = await fetch('/api/me');
           const json = await responce.json();
           setAuthStatus(json.address ? 'authenticated' : 'unauthenticated');
         }
