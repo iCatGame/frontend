@@ -1,8 +1,8 @@
 import React from "react";
 
-const Dashboard = () => {
+const Dashboard = ({ params }) => {
     return (
-        <h1>Dashboard</h1>
+        <h1>{params.nick_name}</h1>
     )
 }
 

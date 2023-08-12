@@ -38,6 +38,11 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
+import { Provider } from 'react-redux';
+import store from '@/lib/redux/store';
+import { useDispatch } from 'react-redux';
+import { setAddress } from '@/lib/redux/addressSlice';
+
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -104,6 +109,8 @@ export function Providers({ children }) {
     const verifyingRef = React.useRef(false);
     const [authStatus, setAuthStatus] = React.useState('loading');
 
+    const dispatch = useDispatch();
+
     React.useEffect(() => {
       setMount(true);
 
@@ -119,6 +126,8 @@ export function Providers({ children }) {
           const responce = await fetch('/api/me');
           const json = await responce.json();
           setAuthStatus(json.address ? 'authenticated' : 'unauthenticated');
+          // console.log('address: ', json.address)
+          dispatch(setAddress(json.address));
         }
         catch (e) {
           console.log(e);
@@ -201,7 +210,7 @@ export function Providers({ children }) {
             status={authStatus}
           >
             <RainbowKitProvider chains={chains} coolMode >
-            {mount && children}
+                {mount && children}
             </RainbowKitProvider>
           </RainbowKitAuthenticationProvider>
         </WagmiConfig>

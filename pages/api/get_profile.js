@@ -16,7 +16,7 @@ const handler = async (req, res) => {
         if (error) {
           throw new Error(error.message);
         }
-        console.log('用户数据：', data);
+        // console.log('用户数据：', data);
 
         res.status(200).json(data);
       } catch (error) {

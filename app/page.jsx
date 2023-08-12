@@ -8,7 +8,7 @@ import useLayoutEffect from "@/components/use-isomorpphic-layout-effect";
 
 import Landing from "@/components/Landing";
 import About from "@/components/About";
-import Loader from "@/components/Loader";
+import HomeLoader from "@/components/HomeLoader";
 import Footer from "@/components/Footer";
 import Features from "@/components/Features";
 import NavBar from "@/components/Navbar";
@@ -66,7 +66,7 @@ const App = () => {
           <Footer />
         </div>
         <NavBar scrollTo={scrollToSection} scrollPaused={scrollPaused}/>
-        <Loader />
+        <HomeLoader />
       </main>
     </div>
   )
