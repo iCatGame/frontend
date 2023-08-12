@@ -10,10 +10,10 @@ import store from '@/lib/redux/store';
 
 // const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: '区块链游戏',
-  description: 'A blockchain game based on AIGC',
-}
+// export const metadata = {
+//   title: '区块链游戏',
+//   description: 'A blockchain game based on AIGC',
+// }
 
 export default function RootLayout({ children }) {
   return (
