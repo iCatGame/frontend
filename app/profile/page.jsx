@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Loader } from "@/components/Loader";
 import { useSelector } from "react-redux";
+import HeaderApp from "@/components/HeaderApp";
+import FooterApp from "@/components/FooterApp";
+import Profile from "@/components/Profile";
 // import { Profile } from "../components/Profile/Profile";
 
 const ProfilePage = () => {
@@ -12,7 +15,7 @@ const ProfilePage = () => {
   const address = useSelector((state) => state.address.address);
   const [profile, setProfile] = useState(null);
 
-  const fetchProfile = async ({ address }) => {
+  const fetchProfile = async ( address ) => {
     try {
       const responce = await fetch(`/api/get_profile?address=${address}`, {
         method: 'GET',
@@ -20,7 +23,8 @@ const ProfilePage = () => {
           Accepts: 'application/json'
         }
       });
-      return responce.json();
+      const data = (await responce.json())[0];
+      return data;
     }
     catch (e) {
       return {};
@@ -42,22 +46,18 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Head>
-        <title>My Profile | iCat</title>
-        <meta property="og:title" content={`My Profile | iCat`} />
-      </Head>
+      <HeaderApp />
 
-      {/* {!!profile ? (
+      {!!profile ? (
         <Profile
           profile={profile}
-          tab={router.query.tab ? String(router.query.tab) : 0}
         />
-      ) : address ? ( */}
+      ) : 
         <Loader />
-        <p>{"profile:" + JSON.stringify(profile) + "address:" + address}</p>
-      {/* ) : (
-        <NotLoggedIn />
-      )} */}
+        // <p>{"profile:" + JSON.stringify(profile) + "address:" + address}</p>
+      }
+
+      <FooterApp />
     </>
   );
 };

@@ -2,9 +2,20 @@
 
 import { Loader } from '@/components/Loader';
 import React from 'react';
+import Mint from '@/components/Mint';
+import FooterApp from '@/components/FooterApp';
+import HeaderApp from '@/components/HeaderApp';
 
-export default function Mint() {
+const MintPage = () => {
   return (
-    <Loader />
-  )
-}
+    <>
+      <HeaderApp />
+
+      <Mint/>
+
+      <FooterApp />
+    </>
+  );
+};
+
+export default MintPage;

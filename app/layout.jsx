@@ -7,6 +7,7 @@ import { Providers } from './providers';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { Provider } from 'react-redux';
 import store from '@/lib/redux/store';
+import Head from "next/head";
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +19,12 @@ import store from '@/lib/redux/store';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      <Head>
+        <title>iCat</title>
+        <meta property="og:description" content="A blockchain game based on AIGC" />
         <meta charSet="utf-8" />
         <link rel='icon' href='favicon.ico' />
-      </head>
+      </Head>
       <body>
         <Provider store={store}>
         <Providers>

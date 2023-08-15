@@ -209,7 +209,7 @@ export function Providers({ children }) {
             adapter={authAdapter}
             status={authStatus}
           >
-            <RainbowKitProvider chains={chains} coolMode >
+            <RainbowKitProvider chains={chains} showRecentTransactions={true} coolMode >
                 {mount && children}
             </RainbowKitProvider>
           </RainbowKitAuthenticationProvider>
