@@ -44,14 +44,9 @@ const Mint = () => {
               </div>
             </div>
             <div className="w-full space-x-5 flex items-center justify-center">
-              {
-                write ?
-                <button disabled={!write} onClick={() => write?.()} className={`rounded-xl px-8 py-3 text-neutral-100 font-[500] transition tracking-wide w-[200px] outline-none ${isLoading ? "bg-emerald-500" : isSuccess ? 'bg-amber-400' : 'bg-blue-600 hover:bg-blue-700'}`}>
-                  {isLoading ? "铸造中..." : isSuccess ? "铸造成功！" : "铸造"}
-                </button>
-                :
-                <ConnectButton className="rounded-xl px-8 py-3 text-neutral-100 font-[500] transition tracking-wide w-[200px] outline-none" />
-              }
+              <button disabled={!write} onClick={() => write?.()} className={`rounded-xl px-8 py-3 text-neutral-100 font-[500] transition tracking-wide w-[200px] outline-none ${isLoading ? "bg-emerald-500" : isSuccess ? 'bg-amber-400' : 'bg-blue-600 hover:bg-blue-700'}`}>
+                {isLoading ? "铸造中..." : isSuccess ? "铸造成功！" : "铸造"}
+              </button>
               {isSuccess && 
                 <Link href="/profile">
                   <button className="rounded-xl px-8 py-3 text-neutral-100 font-[500] transition tracking-wide w-[200px] outline-none bg-blue-600 hover:bg-blue-700">

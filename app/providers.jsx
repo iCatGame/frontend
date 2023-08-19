@@ -36,6 +36,7 @@ import {
   optimismGoerli 
 } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { infuraProvider } from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
 
 import { Provider } from 'react-redux';
@@ -47,16 +48,17 @@ const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
     [
-      mainnet,
+      // mainnet,
       // polygon,
       // optimism,
       // arbitrum,
       arbitrumGoerli,
-      optimismGoerli,
+      // optimismGoerli,
     //   ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [goerli] : []),
     ],
     [
         alchemyProvider({apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}),
+        infuraProvider({apiKey: process.env.NEXT_PUBLIC_INFURA_API_KEY}),
         publicProvider()
     ]
   );

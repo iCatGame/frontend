@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         <Provider store={store}>
         <Providers>
           <div style={{ display: 'flex', justifyContent: 'flex-end', padding: 12, position: 'absolute', zIndex: 1, right: 0 }}>
-              <ConnectButton />
+              <ConnectButton label="链接钱包" />
           </div>
           {children}
         </Providers>

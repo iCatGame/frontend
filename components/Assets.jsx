@@ -11,7 +11,7 @@ const Assets = ({ tokenId }) => {
     abi: iCatAbi
   }
   
-  const { data, isLoading , isSuccess } = useContractReads({
+  const { data, isLoading , isSuccess, isError } = useContractReads({
     contracts: [
       {
         ...iCatCA,
@@ -45,7 +45,7 @@ const Assets = ({ tokenId }) => {
       }
     ]
   })
-  // console.log(data)
+  console.log(data, isSuccess, isError)
 
 
   const stage = {
@@ -63,7 +63,7 @@ const Assets = ({ tokenId }) => {
         </div>
         <div className="box-border text-black gap-5 gap-y-5 display-flex flex-col h-[180px] m-0 w-[650px] antialiased">
           <p className="box-border text-black block font-sans font-extrabold text-3xl h-10 antialiased overflow-hidden">
-            iCat #{tokenId} {data[1].result[0]}
+            iCat #{tokenId} {data[1]?.result[0]}
           </p>
           <div className="grid grid-cols-2 gap-4 font-mono text-black text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg pt-10">
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
