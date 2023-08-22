@@ -22,7 +22,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@supabase/supabase-js": "^2.25.0",
     "antd": "^5.8.3",
-    "axios": "^1.4.0",
+    "antd-img-crop": "^4.12.2",
     "buffer": "^6.0.3",
     "dotenv": "^16.0.3",
     "embla-carousel-autoplay": "^8.0.0-rc11",
