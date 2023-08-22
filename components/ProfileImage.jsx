@@ -4,16 +4,12 @@ export const ProfileImage = ({ profile }) => {
 
   return (
     <div className="px-8 pt-8 relative z-10">
-      {profile?.avator ? (
+      {profile?.avatar ? (
         <Image
-          src={profile?.avator}
+          src={profile?.avatar}
           alt=""
-          layout="responsive"
-          objectFit="cover"
-          objectPosition="center"
           width={200}
           height={200}
-          priority={true}
           className="relative rounded-xl overflow-auto max-h-[800px]"
         />
       ) : (

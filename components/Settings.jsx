@@ -112,7 +112,7 @@ const Settings = ({ profile }) => {
                 </AntdImgCrop>
               </Form.Item>
               <Form.Item label="封面" valuePropName="fileList" getValueFromEvent={normFile} name="cover">
-                <AntdImgCrop rotationSlider showGrid showReset aspect={1700/250} modalCancel="取消" modalOk='确定' name="cover">
+                <AntdImgCrop rotationSlider showGrid showReset aspect={1500/250} modalCancel="取消" modalOk='确定' name="cover">
                   <Upload.Dragger 
                   beforeUpload={beforeUpload} 
                   action='https://api.pinata.cloud/pinning/pinFileToIPFS' 
