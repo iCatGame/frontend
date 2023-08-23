@@ -37,7 +37,7 @@ const Mint = () => {
       <div className="bg-white min-h-screen">
         <div className="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-20 max-w-2xl mx-auto border rounded-lg p-20 bg-white drop-shadow-2xl">
-            <h1 className="text-2xl font-semibold text-center">铸造iCat</h1>
+            <h1 className="text-2xl font-semibold text-center">铸造iCat Egg</h1>
             <div className="relative overflow-hidden flex flex-col gap-18 p-20 bg-gray-200 rounded-lg w-full">
               <div className="absolute left-0 top-0 w-full h-full opacity-20 transform scale-125">
                 <img src="/images/qr.png" alt="" className="object-cover w-full h-full" />
