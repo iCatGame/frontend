@@ -11,7 +11,7 @@ const Dashboard = ({ params }) => {
     const [profile, setProfile] = useState(null);
     const [address, setAddress] = useState(`0x`);
 
-    const fetchProfile = async({ nick_name }) => {
+    const fetchProfile = async(nick_name) => {
         try {
             const responce = await fetch(`/api/get_detail?nick_name=${nick_name}`, {
                 method: 'GET',
@@ -19,7 +19,8 @@ const Dashboard = ({ params }) => {
                     Accepts: 'application/json'
                 }
             });
-            return responce.json();
+            const data = (await responce.json())[0];
+            return data;
         }
         catch (e) {
             return {};
@@ -30,9 +31,11 @@ const Dashboard = ({ params }) => {
         async function getDetail() {
             const detailRes = await fetchProfile(params.nick_name);
             setProfile(detailRes);
+            // console.log(detailRes)
         }
         getDetail();
-    }, [])
+        // console.log(profile)
+    }, [profile])
 
     return (
         <div>

@@ -1,0 +1,38 @@
+import { useContractRead, useContractWrite, usePrepareContractWrite } from "wagmi";
+import { Avatar, Card } from "antd";
+import eggAbi from "@/lib/abi/eggAbi";
+import { useEffect } from "react";
+import EggCard from "./EggCard";
+
+const { Meta } = Card;
+
+const EggCards = ({ address }) => {
+
+  const { data, isError, isSuccess, isLoading } = useContractRead({
+    address: process.env.NEXT_PUBLIC_EGG_CONTRACT_ADDRESS,
+    abi: eggAbi,
+    functionName: 'getOwnedTokenId',
+    args: [address]
+  })
+
+  const generatedElements = data[0].length > 0 ?
+   data[0].map(tokenId => (
+    <EggCard key={tokenId} tokenId={tokenId} />
+    )) 
+  :
+  <div className="pb-20">
+    <p>还没有iCat哦，快去铸造一个吧！</p>
+  </div>;
+
+  useEffect(() => {
+    // console.log(data)
+  }, [data, isSuccess])
+  
+  return (
+    <div className='flex flex-row space-x-4 py-8'>
+      {generatedElements}
+    </div>
+  )
+}
+
+export default EggCards;
