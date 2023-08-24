@@ -5,7 +5,7 @@ import Link from 'next/link';
 const HeaderApp = () => {
 
   return (
-    <nav className='flex items-center justify-start space-x-8 container drop-shadow-2xl'>
+    <nav className='flex items-center justify-start space-x-8 bg-slate-50 container drop-shadow-xl'>
       <Link href={"/"} className="flex items-center font-medium text-white text-lg">
         <Image
           src={`/images/qr.png`}
