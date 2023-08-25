@@ -3,6 +3,7 @@
 import FooterApp from "@/components/FooterApp";
 import HeaderApp from "@/components/HeaderApp";
 import { Loader } from "@/components/Loader";
+import { NotFound } from "@/components/NotFound";
 import Profile from "@/components/Profile";
 import React, { useEffect, useState } from "react";
 
@@ -19,7 +20,7 @@ const Dashboard = ({ params }) => {
                     Accepts: 'application/json'
                 }
             });
-            const data = (await responce.json())[0];
+            const data = (await responce.json());
             return data;
         }
         catch (e) {
@@ -41,8 +42,10 @@ const Dashboard = ({ params }) => {
         <div>
             <HeaderApp />
             {!!profile ? (
+                profile.length == 0 ?
+                <NotFound /> :
                 <Profile
-                profile={profile}
+                profile={profile[0]}
                 />
             ) : 
                 <Loader />
