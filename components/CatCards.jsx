@@ -28,7 +28,7 @@ const CatCards = ({ address }) => {
     );
 
   useEffect(() => {
-    console.log(data, isSuccess)
+    // console.log(data, isSuccess)
   }, [data, isSuccess])
 
   return (

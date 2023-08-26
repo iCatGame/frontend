@@ -6,6 +6,7 @@ import { ProfileCover } from './ProfileCover';
 import Link from 'next/link';
 import EggCards from './EggCards';
 import CatCards from './CatCards';
+import { Stuff } from './Stuff';
 
 const Profile = ({ profile }) => {
   const { address } = useAccount();
@@ -27,13 +28,13 @@ const Profile = ({ profile }) => {
     address == profile?.address &&
     {
       key: "stuff",
-      label: "stuff"
+      label: "物品"
     }
   ];
   const contentList = {
     iCat: <CatCards address={profile?.address} />,
     Egg: <EggCards address={profile?.address} />,
-    stuff: address === profile?.address ? <div>成员之一</div> : null
+    stuff: address === profile?.address ? <Stuff /> : null
   }
 
   return (
