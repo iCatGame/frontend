@@ -4,6 +4,7 @@ import iCatAbi from "@/lib/abi/catAbi.json";
 import eggAbi from "@/lib/abi/eggAbi.json";
 import { Loader } from "./Loader";
 import Button from "./Button";
+import { FeedModal } from "./FeedModal";
 
 const Assets = ({ tokenId }) => {
   const iCatCA = {
@@ -11,7 +12,7 @@ const Assets = ({ tokenId }) => {
     abi: iCatAbi
   }
   
-  const { data, isLoading , isSuccess, isError } = useContractReads({
+  const { data, isLoading , isSuccess } = useContractReads({
     contracts: [
       {
         ...iCatCA,
@@ -45,7 +46,7 @@ const Assets = ({ tokenId }) => {
       }
     ]
   })
-  console.log(data, isSuccess, isError)
+  // console.log(data, isSuccess)
 
 
   const stage = {
@@ -99,7 +100,7 @@ const Assets = ({ tokenId }) => {
             <Button tokenId={tokenId} name={"检查"} func={"examCat"} />
           </div>
           <div className="flex flex-col justify-center items-center"> 
-            <Button tokenId={tokenId} name={"喂食"} func={"feedCat"} />
+            <FeedModal />
           </div>
           <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"埋葬"} func={"buryCat"} />

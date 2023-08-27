@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Search } from './Search';
+import { Checkin } from './Checkin';
 
 const HeaderApp = () => {
 
@@ -31,6 +32,9 @@ const HeaderApp = () => {
       </ul>
       <div className='flex justify-center items-center min-w-[50%] max-w-2xl w-full'>
         <Search />
+      </div>
+      <div>
+        <Checkin />
       </div>
     </nav>
   );
