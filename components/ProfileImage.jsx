@@ -3,7 +3,7 @@ import Image from "next/image";
 export const ProfileImage = ({ profile }) => {
 
   return (
-    <div className="px-8 pt-8 relative z-10">
+    <div className="px-8 pt-8 relative z-10 bg-transparent">
       {profile?.avatar ? (
         <Image
           src={profile?.avatar}

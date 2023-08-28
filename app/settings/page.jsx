@@ -3,6 +3,7 @@
 import FooterApp from '@/components/FooterApp';
 import HeaderApp from '@/components/HeaderApp';
 import { Loader } from '@/components/Loader';
+import { NotLoggedIn } from '@/components/NotLoggedIn';
 import Settings from '@/components/Settings';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import React, { useState, useEffect } from 'react';
@@ -52,7 +53,11 @@ export default function SettingsPage() {
         ) :
         <ConnectButton className="h-full" />
       ) : 
+      (!!address ? (
         <Loader />
+      ) : (
+        <NotLoggedIn />
+      ))
       }
       <FooterApp />
     </div>

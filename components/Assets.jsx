@@ -5,8 +5,12 @@ import eggAbi from "@/lib/abi/eggAbi.json";
 import { Loader } from "./Loader";
 import Button from "./Button";
 import { FeedModal } from "./FeedModal";
+import { toast, Toaster } from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const Assets = ({ tokenId }) => {
+  const [isDead, setIsDead] = useState(false);
+
   const iCatCA = {
     address: process.env.NEXT_PUBLIC_ICAT_CONTRACT_ADDRESS,
     abi: iCatAbi
@@ -55,16 +59,26 @@ const Assets = ({ tokenId }) => {
     2: "成熟期"
   }
 
+  useEffect(() => {
+    if (isSuccess) {
+      if (data[2].result == 0) {
+        toast.error("哎呀，由于你的疏忽，这只猫咪已经死亡了，将它埋葬吧！");
+        setIsDead(true);
+      }
+    }
+  }, [data, isSuccess]);
+
   return (
     isSuccess ?
     <div className="mx-[204px] my-0 gap-[20px] max-w-[1280px] px-10 pt-[40px] pb-[60px] gap-y-5 flex-col flex">
+      <Toaster />
       <div className="grid grid-cols-[320px,1fr] gap-10 relative antialiased">
         <div className="aspect-square bg-white bg-clip-border bg-opacity-100 bg-origin-padding bg-no-repeat bg-auto rounded-xl box-border text-black block overflow-hidden relative antialiased h-[320px]">
           <Image src={"/images/qr.png"} width={320} height={320}/>
         </div>
         <div className="box-border text-black gap-5 gap-y-5 display-flex flex-col h-[180px] m-0 w-[650px] antialiased">
           <p className="box-border text-black block font-sans font-extrabold text-3xl h-10 antialiased overflow-hidden">
-            iCat #{tokenId} {data[1]?.result[0]}
+            iCat #{tokenId} {data[1]?.result[0]} {isDead && "(已死亡☠️)"}
           </p>
           <div className="grid grid-cols-2 gap-4 font-mono text-black text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg pt-10">
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
@@ -87,21 +101,21 @@ const Assets = ({ tokenId }) => {
       </div>
       <div className="border border-solid rounded-xl box-border text-black block font-sans w-[1048px] mt-10 antialiased">
         <div className="grid grid-cols-3 gap-x-20 gap-y-10 font-mono text-white text-sm text-center justify-center items-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
-          <div className="flex flex-col justify-center items-center"> 
+          {!isDead && <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"撸猫"} func={"pet"} />
-          </div>
-          <div className="flex flex-col justify-center items-center"> 
+          </div>}
+          {!isDead && <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"铲屎"} func={"clearFeces"} />
-          </div>
-          <div className="flex flex-col justify-center items-center"> 
+          </div>}
+          {!isDead && <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"治疗"} func={"cure"} />
-          </div>
+          </div>}
           <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"检查"} func={"examCat"} />
           </div>
-          <div className="flex flex-col justify-center items-center"> 
-            <FeedModal />
-          </div>
+          {!isDead && <div className="flex flex-col justify-center items-center"> 
+            <FeedModal tokenId={tokenId}/>
+          </div>}
           <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"埋葬"} func={"buryCat"} />
           </div>

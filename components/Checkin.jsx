@@ -42,7 +42,7 @@ export const Checkin = () => {
           签到
         </button>
         :
-        <p className={`rounded-[12px] text-black h-[40px] font-[700] transition tracking-wide w-[150px] outline-none bg-write hover:scale-110 shadow-lg flex justify-center items-center`}>
+        <p className={`rounded-[12px] text-black h-[40px] font-[700] transition tracking-wide w-[150px] outline-none bg-write hover:scale-110 bg-slate-50 shadow-lg flex justify-center items-center`}>
           积分：{String(data)}
         </p>
       }

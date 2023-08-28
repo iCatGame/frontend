@@ -9,6 +9,7 @@ import HeaderApp from "@/components/HeaderApp";
 import FooterApp from "@/components/FooterApp";
 import Profile from "@/components/Profile";
 import { Toaster } from "react-hot-toast";
+import { NotLoggedIn } from "@/components/NotLoggedIn";
 // import { Profile } from "../components/Profile/Profile";
 
 const ProfilePage = () => {
@@ -54,7 +55,11 @@ const ProfilePage = () => {
           profile={profile}
         />
       ) : 
+      (!!address ? (
         <Loader />
+      ) : (
+        <NotLoggedIn />
+      ))
         // <p>{"profile:" + JSON.stringify(profile) + "address:" + address}</p>
       }
 

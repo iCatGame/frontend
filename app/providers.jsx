@@ -197,6 +197,7 @@ export function Providers({ children }) {
   const signOut = async () => {
       setAuthStatus('unauthenticated');
       await fetch('/api/logout');
+      dispatch(setAddress(null));
     }
   
   const authAdapter = React.useMemo(() => {

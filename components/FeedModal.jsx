@@ -1,7 +1,8 @@
-import { Modal } from "antd";
+import { Card, Modal } from "antd";
 import { useState } from "react";
+import { FeedCard } from "./FeedCard";
 
-export const FeedModal = () => {
+export const FeedModal = ({ tokenId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -17,12 +18,21 @@ export const FeedModal = () => {
         喂食
       </button>
       <Modal 
+        title="选择投喂的食物："
         open={isModalOpen}
         onCancel={handleCancel}
         closable={true}
         maskClosable={true}
         footer={null}
-      />
+        destroyOnClose={true}
+        width={800}
+      >
+        <div className="flex flex-row space-x-8">
+          <FeedCard tokenId={tokenId} style={`leftover`} />
+          <FeedCard tokenId={tokenId} style={`fishchip`} />
+          <FeedCard tokenId={tokenId} style={`tin`} />
+        </div>
+      </Modal>
     </>
   )
 }

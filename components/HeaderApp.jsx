@@ -3,8 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Search } from './Search';
 import { Checkin } from './Checkin';
+import { useSelector } from 'react-redux';
 
 const HeaderApp = () => {
+
+  const address = useSelector((state) => state.address.address);
 
   return (
     <nav className='flex items-center justify-start space-x-8 bg-slate-50 container drop-shadow-xl'>
@@ -18,7 +21,7 @@ const HeaderApp = () => {
           className="relative w-16 h-16 mr-auto md:mr-0 flex-shrink-0 !important"
         />
       </Link>
-      <ul className='hidden sm:flex sm:items-center space-x-5'>
+      <ul className='flex sm:items-center space-x-5'>
         <li>
           <Link href={"/profile"} className='hover:text-black text-gray-400'>
             个人主页
@@ -30,12 +33,12 @@ const HeaderApp = () => {
           </Link>
         </li>
       </ul>
-      <div className='flex justify-center items-center min-w-[50%] max-w-2xl w-full'>
+      <div className='flex justify-center items-center min-w-[50%] max-w-2xl w-full overflow-hidden'>
         <Search />
       </div>
-      <div>
+      {!!address && <div className='overflow-hidden'>
         <Checkin />
-      </div>
+      </div>}
     </nav>
   );
 };
