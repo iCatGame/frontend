@@ -10,7 +10,7 @@ export const ProfileImage = ({ profile }) => {
           alt=""
           width={200}
           height={200}
-          className="relative rounded-xl overflow-auto max-h-[800px]"
+          className="relative rounded-full overflow-auto max-h-[800px]"
         />
       ) : (
         <Image

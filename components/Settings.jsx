@@ -89,7 +89,7 @@ const Settings = ({ profile }) => {
                 <Input value={bio} />
               </Form.Item>
               <Form.Item label="头像" valuePropName="fileList" getValueFromEvent={normFile} name="avatar" extra="头像比例为1:1">
-                <AntdImgCrop rotationSlider showGrid showReset aspect={1/1} modalCancel="取消" modalOk='确定' name="avatar">
+                <AntdImgCrop rotationSlider showGrid showReset aspect={1/1} cropShape='round' modalCancel="取消" modalOk='确定' name="avatar">
                   <Upload.Dragger
                     beforeUpload={beforeUpload}
                     action='https://api.pinata.cloud/pinning/pinFileToIPFS' 
