@@ -17,7 +17,7 @@ export const ProfileImage = ({ profile }) => {
           src={"/images/qr.png"}
           width={200}
           height={200}
-          className='relative rounded-xl overflow-auto max-h-[800px]'
+          className='relative rounded-full overflow-auto max-h-[800px]'
         />
       )}
     </div>
