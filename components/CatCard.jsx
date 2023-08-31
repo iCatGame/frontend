@@ -50,8 +50,8 @@ const CatCard = ({ tokenId }) => {
       >
         <Card.Meta
         avatar={<Avatar />}
-          title={`iCat #${tokenId} ${data[0]?.result[0]}`}
-          description={stage[data[0].result[3]]}
+          title={`iCat #${tokenId} ${!!data ? data[0]?.result[0] : 'unknown'}`}
+          description={stage[data?.[0].result[3]]}
         />
       </Card>
     </Link>

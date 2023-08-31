@@ -34,7 +34,7 @@ export const Checkin = () => {
     console.log('address:', address, isError, isSuccess)
   }, [data, tx, address, isError, isSuccess])
   return (
-    <div>
+    <div className="pr-[-50]">
       {
         isSuccess
         ?
@@ -42,7 +42,7 @@ export const Checkin = () => {
           签到
         </button>
         :
-        <p className={`rounded-[12px] text-black h-[40px] font-[700] transition tracking-wide w-[150px] outline-none bg-write hover:scale-110 bg-slate-50 shadow-lg flex justify-center items-center`}>
+        <p className={`rounded-[12px] text-black h-[35px] font-[600] transition tracking-wide w-[150px] outline-none bg-write hover:scale-110 bg-slate-50 shadow-lg flex justify-center items-center`}>
           积分：{String(data)}
         </p>
       }

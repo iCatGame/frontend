@@ -24,7 +24,7 @@ const HeaderApp = () => {
       <ul className='flex sm:items-center space-x-5'>
         <li>
           <Link href={"/profile"} className='hover:text-black text-gray-400'>
-            个人主页
+            主页
           </Link>
         </li>
         <li>
@@ -33,7 +33,7 @@ const HeaderApp = () => {
           </Link>
         </li>
       </ul>
-      <div className='flex justify-center items-center min-w-[50%] max-w-2xl w-full overflow-hidden'>
+      <div className='justify-center items-center min-w-[57%] max-w-2xl w-full hidden md:block'>
         <Search />
       </div>
       {!!address && <div className='overflow-hidden'>

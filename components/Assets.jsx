@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContractReads } from "wagmi";
+import { useAccount, useContractReads } from "wagmi";
 import iCatAbi from "@/lib/abi/catAbi.json";
 import eggAbi from "@/lib/abi/eggAbi.json";
 import { Loader } from "./Loader";
@@ -7,9 +7,12 @@ import Button from "./Button";
 import { FeedModal } from "./FeedModal";
 import { toast, Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { EditOutlined } from "@ant-design/icons";
 
 const Assets = ({ tokenId }) => {
   const [isDead, setIsDead] = useState(false);
+  const [owner, setOwner] = useState("");
+  const { address } = useAccount();
 
   const iCatCA = {
     address: process.env.NEXT_PUBLIC_ICAT_CONTRACT_ADDRESS,
@@ -47,6 +50,11 @@ const Assets = ({ tokenId }) => {
         ...iCatCA,
         functionName: 'calculateIntimacy',
         args: [tokenId]
+      }, 
+      {
+        ...iCatCA,
+        functionName: 'ownerOf',
+        args: [tokenId]
       }
     ]
   })
@@ -61,12 +69,14 @@ const Assets = ({ tokenId }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      if (data[2].result == 0) {
+      if (data?.[2].result == 0) {
         toast.error("哎呀，由于你的疏忽，这只猫咪已经死亡了，将它埋葬吧！");
         setIsDead(true);
       }
+      setOwner(data?.[6].result);
+      // console.log('aaa', owner)
     }
-  }, [data, isSuccess]);
+  }, [data, isSuccess, owner]);
 
   return (
     isSuccess ?
@@ -77,24 +87,31 @@ const Assets = ({ tokenId }) => {
           <Image src={"/images/qr.png"} width={320} height={320}/>
         </div>
         <div className="box-border text-black gap-5 gap-y-5 display-flex flex-col h-[180px] m-0 w-[650px] antialiased">
-          <p className="box-border text-black block font-sans font-extrabold text-3xl h-10 antialiased overflow-hidden">
-            iCat #{tokenId} {data[1]?.result[0]} {isDead && "(已死亡☠️)"}
-          </p>
+          <div className="flex flex-row justify-start items-center">
+            <p className="box-border text-black block font-sans font-extrabold text-3xl h-10 antialiased overflow-hidden">
+              iCat #{tokenId} {data?.[1]?.result[0]} {isDead && "(已死亡☠️)"}
+            </p>
+            {
+              // !isDead && 
+              owner == address && 
+                <EditOutlined />
+            }
+          </div>
           <div className="grid grid-cols-2 gap-4 font-mono text-black text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg pt-10">
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
-              阶段：{stage[data[1].result[3]]}
+              阶段：{stage[data?.[1].result[3]]}
             </div>
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
-              健康度：{Number(data[2].result)}
+              健康度：{Number(data?.[2].result)}
             </div>
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
-              饥饿度：{Number(data[4].result)}
+              饥饿度：{Number(data?.[4].result)}
             </div>
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
-              排泄物：{Number(data[3].result)}
+              排泄物：{Number(data?.[3].result)}
             </div>
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
-              亲密度：{Number(data[5].result)}
+              亲密度：{Number(data?.[5].result)}
             </div>
           </div>
         </div>
