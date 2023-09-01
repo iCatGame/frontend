@@ -32,7 +32,7 @@ const EggCards = ({ address }) => {
   }, [data, isSuccess])
   
   return (
-    <div className='flex flex-row space-x-4 py-8'>
+    <div className='flex flex-col lg:flex-row gap-4 pt-8 pb-20'>
       {generatedElements}
     </div>
   )

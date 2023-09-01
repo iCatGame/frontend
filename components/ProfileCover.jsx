@@ -5,7 +5,7 @@ export const ProfileCover = ({ profile }) => {
   // console.log(profile)
 
   return (
-    <div className="relative z-0 bg-local bg-clip-border bg-transparent bg-gradient-to-br from-gray-300 to-gray-300/25 bg-origin-padding bg-top box-border text-black block font-sans h-250px opacity-80 w-[1706.67px] h-[250px] antialiased">
+    <div className="relative z-0 bg-local bg-clip-border bg-transparent bg-gradient-to-br from-gray-300 to-gray-300/25 bg-origin-padding bg-top box-border text-black block font-sans h-250px opacity-80 lg:w-screen md:h-full  h-[250px] antialiased">
       {profile?.cover ? (
         <Image
           src={profile?.cover}

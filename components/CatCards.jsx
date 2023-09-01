@@ -18,7 +18,7 @@ const CatCards = ({ address }) => {
   const generatedElements = !!data &&
     (
       data?.[0].length == 0 ?
-      <div className="pb-20">
+      <div>
       <p>还没有iCat哦，快去铸造一个吧！</p>
     </div>
     :
@@ -33,7 +33,7 @@ const CatCards = ({ address }) => {
 
   return (
     // Todo: 把Card用Link包裹
-    <div className='flex flex-row space-x-4 py-8'>
+    <div className='flex flex-col lg:flex-row gap-4 pt-8 pb-20'>
       {generatedElements}
     </div>
   )
