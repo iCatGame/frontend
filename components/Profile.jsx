@@ -32,8 +32,12 @@ const Profile = ({ profile }) => {
     }
   ];
   const contentList = {
-    iCat: <CatCards address={profile?.address} />,
-    Egg: <EggCards address={profile?.address} />,
+    iCat: <div className='flex justify-center lg:justify-start'>
+            <CatCards address={profile?.address} />
+          </div>,
+    Egg: <div className='flex justify-center lg:justify-start'>
+          <EggCards address={profile?.address} />
+        </div>,
     stuff: address === profile?.address ? <Stuff /> : null
   }
 

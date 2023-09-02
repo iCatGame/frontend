@@ -33,7 +33,7 @@ const CatCards = ({ address }) => {
 
   return (
     // Todo: 把Card用Link包裹
-    <div className='flex flex-col lg:flex-row gap-4 pt-8 pb-20'>
+    <div className='flex flex-row flex-wrap gap-4 pt-8 pb-20'>
       {generatedElements}
     </div>
   )
