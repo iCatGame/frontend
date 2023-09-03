@@ -102,15 +102,15 @@ const Assets = ({ tokenId }) => {
 
   return (
     isSuccess ?
-    <div className="lg:mx-[204px] md:mx-8 my-0 gap-[20px] max-w-[1280px] px-10 pt-[40px] pb-[60px] gap-y-5 lg:flex-col md:flex-col flex">
+    <div className="lg:mx-[204px] md:mx-8 my-0 gap-[20px] max-w-[1280px] px-10 pt-[40px] pb-[60px] gap-y-5 flex-col flex">
       <Toaster />
-      <div className="grid lg:grid-cols-[320px,1fr] gap-10 md:grid-cols-1 relative antialiased">
+      <div className="grid grid-rows-1 lg:grid-cols-[320px,1fr] container gap-10 relative antialiased justify-center">
         <div className="aspect-square bg-white bg-clip-border bg-opacity-100 bg-origin-padding bg-no-repeat bg-auto rounded-xl box-border text-black block overflow-hidden relative antialiased h-[320px]">
-          <Image src={"/images/qr.png"} width={320} height={320}/>
+          <Image src={"/images/qr.png"} width={300} height={300}/>
         </div>
-        <div className="box-border text-black gap-5 gap-y-5 display-flex flex-col h-[180px] m-0 w-[650px] antialiased">
-          <div className="flex flex-row justify-start items-center gap-1">
-            <p className="box-border text-black block font-sans font-extrabold lg:text-3xl md:text-[28px]/[36px] md:justify-center h-10 antialiased overflow-hidden">
+        <div className="box-border text-black gap-5 gap-y-5 display-flex flex-col h-[180px] m-0 w-full antialiased">
+          <div className="flex flex-row justify-center lg:justify-start items-center gap-1">
+            <p className="box-border text-black block font-sans font-extrabold text-3xl md:justify-center h-10 antialiased">
               iCat #{tokenId} {data?.[1]?.result[0]} {isDead && "(已死亡☠️)"}
             </p>
             {
@@ -150,7 +150,7 @@ const Assets = ({ tokenId }) => {
               </div>
             }
           </div>
-          <div className="grid lg:grid-cols-2 md:grid-cols-1 lg:w-[650px] md:w-[300px] gap-4 font-mono text-black text-sm text-center font-bold leading-6 rounded-lg pt-10">
+          <div className="grid lg:grid-cols-2 grid-cols-1 lg:w-auto w-full gap-4 font-mono text-black text-sm text-center font-bold leading-6 rounded-lg pt-10 container">
             <div className="p-4 rounded-lg shadow-lg bg-white drop-shadow-2xl">
               阶段：{stage[data?.[1].result[3]]}
             </div>
@@ -169,8 +169,8 @@ const Assets = ({ tokenId }) => {
           </div>
         </div>
       </div>
-      <div className="border border-solid rounded-xl box-border text-black block font-sans lg:w-[1048px] md:w-[300px] mt-10 antialiased">
-        <div className="grid grid-cols-3 gap-x-20 gap-y-10 font-mono text-white text-sm text-center justify-center items-center font-bold leading-6 bg-stripes-fuchsia rounded-lg p-4">
+      <div className="border border-none rounded-xl box-border text-black block font-sans w-full mt-10 antialiased pt-[220px] lg:pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-20 gap-y-10 font-mono text-white text-sm text-center justify-center items-center font-bold leading-6 bg-stripes-fuchsia rounded-lg p-4">
           {!isDead && <div className="flex flex-col justify-center items-center"> 
             <Button tokenId={tokenId} name={"撸猫"} func={"pet"} />
           </div>}
