@@ -18,9 +18,8 @@ export const Checkin = () => {
     address: process.env.NEXT_PUBLIC_ICAT_CONTRACT_ADDRESS,
     abi: iCatAbi,
     functionName: 'checkIn',
-    args:[]
   });
-  const { data: tx, isSuccess, write } = useContractWrite({ config });
+  const { data: tx, isSuccess, write } = useContractWrite(config);
 
   const addRecentTransaction = useAddRecentTransaction();
 
@@ -32,14 +31,14 @@ export const Checkin = () => {
       })
     }
     console.log('address:', address, isError, isSuccess)
-  }, [data, tx, address, isError, isSuccess])
+  }, [data, tx, address, isError, write])
   return (
     <div className="pr-[-50]">
       {
-        isSuccess
+        write
         ?
-        <button disabled={!isSuccess} className={`rounded-full text-black h-[40px] font-[500] transition tracking-wide w-[150px] outline-none bg-slate-100 hover:bg-slate-200 drop-shadow-lg`} onClick={() => write?.()}>
-          签到
+        <button disabled={!write} className={`rounded-full text-black h-[40px] font-[500] transition tracking-wide w-[150px] outline-none bg-slate-200 hover:bg-slate-300 drop-shadow-lg`} onClick={() => write?.()}>
+          每日签到
         </button>
         :
         <p className={`rounded-[12px] text-black h-[35px] font-[600] transition tracking-wide w-[150px] outline-none bg-write hover:scale-110 bg-slate-50 shadow-lg flex justify-center items-center`}>

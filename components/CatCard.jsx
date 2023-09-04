@@ -33,7 +33,7 @@ const CatCard = ({ tokenId }) => {
   }
 
   useEffect(() => {
-    console.log(data); // eslint-disable-line no-console
+    // console.log(data); // eslint-disable-line no-console
   }, [data, isSuccess])
 
   return (
