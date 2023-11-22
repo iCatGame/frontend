@@ -7,6 +7,13 @@ import { useSelector } from "react-redux";
 export const Checkin = () => {
   const address = useSelector(state => state.address.address);
 
+  const { data: canCheckIn } = useContractRead({
+    address: process.env.NEXT_PUBLIC_ICAT_CONTRACT_ADDRESS,
+    abi: iCatAbi,
+    functionName: 'canCheckIn',
+    args: [address]
+  })
+
   const { data } = useContractRead({
     address: process.env.NEXT_PUBLIC_ICAT_CONTRACT_ADDRESS,
     abi: iCatAbi,
@@ -35,9 +42,9 @@ export const Checkin = () => {
   return (
     <div className="pr-[-50]">
       {
-        write
+        canCheckIn
         ?
-        <button disabled={!write} className={`rounded-full text-black h-[40px] font-[500] transition tracking-wide w-[150px] outline-none bg-slate-200 hover:bg-slate-300 drop-shadow-lg`} onClick={() => write?.()}>
+        <button disabled={!canCheckIn} className={`rounded-full text-black h-[40px] font-[500] transition tracking-wide w-[150px] outline-none bg-slate-200 hover:bg-slate-300 drop-shadow-lg`} onClick={() => write?.()}>
           每日签到
         </button>
         :
