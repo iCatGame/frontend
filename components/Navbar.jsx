@@ -55,19 +55,19 @@ const NavBar = ({scrollTo, scrollPaused}) => {
                             </div>
                         </div>   
                         <div className="absolute bottom-20 lg:bottom-12 px-[5vw] lg:px-8 flex">
-                            <a href="https://github.com/lukeaelder" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <a href="https://github.com/iCatGame" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <div className={`group p-6 w-fit cursor-pointer transition ${open ? '' : 'translate-x-[20px] duration-300'}`}>
                                     <p className="transition group-hover:-translate-y-1 group-hover:text-white">GitHub</p>
                                     <div className="h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition duration-200 origin-center"></div>
                                 </div>
                             </a>
-                            <a href="https://www.linkedin.com/in/lukeaelder" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <a href="https://game-tutorial-beta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Doc">
                                 <div className={`group p-6 w-fit cursor-pointer transition ${open ? '' : 'translate-x-[40px] duration-300'}`}>
-                                    <p className="transition group-hover:-translate-y-1 group-hover:text-white">LinkedIn</p>
+                                    <p className="transition group-hover:-translate-y-1 group-hover:text-white">开发文档</p>
                                     <div className="h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition duration-200 origin-center"></div>
                                 </div>
                             </a>
-                            <a href="mailto:lukeaeld@gmail.com" aria-label="Email">
+                            <a href="mailto:20281128@bjtu.edu.cn" aria-label="Email">
                                 <div className={`group p-6 w-fit cursor-pointer transition ${open ? '' : 'translate-x-[80px] duration-300'}`}>
                                     <p className="transition group-hover:-translate-y-1 group-hover:text-white">Email</p>
                                     <div className="h-[2px] bg-white scale-x-0 group-hover:scale-x-100 transition duration-200 origin-center"></div>

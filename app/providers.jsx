@@ -64,7 +64,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   );
   
   const { wallets } = getDefaultWallets({
-    appName: 'blockchain game',
+    appName: 'iCat',
     projectId,
     chains,
   });
@@ -102,7 +102,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 //   );
 
 const getSiweMessageOptions = () => ({
-  statement: '登录基于AIGC的区块链游戏网站',
+  statement: '登录iCat',
 });
 
 export function Providers({ children }) {
@@ -158,7 +158,7 @@ export function Providers({ children }) {
       return new SiweMessage({
         domain: window.location.host,
         address,
-        statement: '登录基于AIGC的区块链游戏网站',
+        statement: '登录iCat',
         uri: window.location.origin,
         version: '1',
         chainId,

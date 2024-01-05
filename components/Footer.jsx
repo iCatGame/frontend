@@ -14,7 +14,7 @@ const Footer = () => {
     return (
         <div ref={el} className="w-full h-[250px] bg-transparent px-[5vw] relative overflow-x-clip bg-gray-800">
             <div className="w-full h-full flex items-center justify-center overflow-hidden">
-                <a href="https://github.com/BlockchainGameWithAIGC/frontend" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group" data-lag="0.3">
+                <a href="https://github.com/iCat/frontend" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group" data-lag="0.3">
                     <div className="w-[100px] h-[100px] bg-neutral-900 rounded grid place-items-center group-hover:translate-y-[-6px] group-hover:bg-blue-600 transition">
                         <svg className="w-[50px] h-[50px] stroke-neutral-100 transition group-hover:translate-y-[-3px] group-hover:scale-105" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -22,7 +22,7 @@ const Footer = () => {
                         </svg>
                     </div>
                 </a>
-                <a href="https://www.linkedin.com/in/lukeaelder" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group mx-[5vw]" data-lag="0.5">
+                <a href="https://game-tutorial-beta.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Doc" className="group mx-[5vw]" data-lag="0.5">
                     <div className="w-[100px] h-[100px] bg-neutral-900 rounded grid place-items-center group-hover:translate-y-[-6px] group-hover:bg-blue-600 transition">
                         <svg className="w-[50px] h-[50px] stroke-neutral-100 transition group-hover:translate-y-[-3px] group-hover:scale-105" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -34,7 +34,7 @@ const Footer = () => {
                         </svg>
                     </div>
                 </a>
-                <a href="mailto:lukeaeld@gmail.com" aria-label="Email"  className="group" data-lag="0.7">
+                <a href="mailto:20281128@bjtu.edu.cn" aria-label="Email"  className="group" data-lag="0.7">
                     <div className="w-[100px] h-[100px] bg-neutral-900 rounded grid place-items-center group-hover:translate-y-[-6px] group-hover:bg-blue-600 transition">
                         <svg className="w-[50px] h-[50px] stroke-neutral-100 transition group-hover:translate-y-[-3px] group-hover:scale-105" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
