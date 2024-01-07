@@ -38,7 +38,7 @@ export const Checkin = () => {
       })
     }
     console.log('address:', address, isError, isSuccess)
-  }, [data, tx, address, isError, write])
+  }, [data, tx, address, isError, write, canCheckIn])
   return (
     <div className="pr-[-50]">
       {
